@@ -1,8 +1,7 @@
 import { useAuth } from "react-oidc-context";
 import { useEffect, useState } from "react";
 import { STSClient, GetCallerIdentityCommand } from "@aws-sdk/client-sts";
-import { fromCognitoIdentityPool } from "@aws-sdk/credential-providers";
-import {getCredentialsFromIdentityPool} from "./util/GetCredentialsFromIdentityPool.tsx";
+import {getCredentialsFromIdentityPool} from "./util/GetCredentialsFromIdentityPool.ts";
 
 function App() {
   const auth = useAuth();
