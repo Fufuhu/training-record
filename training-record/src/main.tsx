@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import {AuthProvider} from "react-oidc-context";
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import {Records} from "./pages/Records.tsx";
 
 const cognitoAuthConfig = {
   authority: import.meta.env.VITE_COGNITO_AUTHORITY,
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
+  },
+  {
+    path: '/records/:year/:month/:day',
+    element: <Records />
   }
 ]);
 
