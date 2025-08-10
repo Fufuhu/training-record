@@ -2,7 +2,7 @@ import { useAuth } from "react-oidc-context";
 import { useEffect, useState } from "react";
 import { STSClient, GetCallerIdentityCommand } from "@aws-sdk/client-sts";
 import { fromCognitoIdentityPool } from "@aws-sdk/credential-providers";
-import {GetCredentialsFromIdentityPool} from "./util/GetCredentialsFromIdentityPool.tsx";
+import {getCredentialsFromIdentityPool} from "./util/GetCredentialsFromIdentityPool.tsx";
 
 function App() {
   const auth = useAuth();
@@ -13,7 +13,7 @@ function App() {
     const fetchCallerIdentity = async () => {
       if (!auth.isAuthenticated || !auth.user?.id_token) return;
       try {
-        const credentials = GetCredentialsFromIdentityPool(auth.user.id_token)
+        const credentials = await getCredentialsFromIdentityPool(auth.user.id_token)
 
         // AWS SDKの認証情報をIDトークンで取得する場合はCognito Identity Poolが必要です
         // ここではIDトークンを使った一例（実際はCognitoIdentityCredentials等が必要）
