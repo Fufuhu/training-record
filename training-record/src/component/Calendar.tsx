@@ -103,6 +103,12 @@ function Calendar({ highlightYear, highlightMonth, highlightDay }: CalendarProps
           ))}
         </tbody>
       </table>
+      <div style={{marginTop: 16, textAlign: "center"}}>
+        <strong>表示中の日付: </strong>
+        {selectedDate
+          ? `${year}年${month + 1}月${selectedDate}日`
+          : `${year}年${month + 1}月${today.getDate()}日`}
+      </div>
     </div>
   );
 }
