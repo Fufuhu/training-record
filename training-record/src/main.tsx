@@ -2,6 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import {AuthProvider} from "react-oidc-context";
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 const cognitoAuthConfig = {
   authority: import.meta.env.VITE_COGNITO_AUTHORITY,
@@ -11,10 +12,17 @@ const cognitoAuthConfig = {
   scope: "phone openid email",
 };
 
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <App />,
+  }
+]);
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <AuthProvider {...cognitoAuthConfig}>
-      <App />
+      <RouterProvider router={router} />
     </AuthProvider>
   </StrictMode>,
 )
