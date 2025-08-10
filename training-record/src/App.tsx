@@ -2,6 +2,7 @@ import { useAuth } from "react-oidc-context";
 import { useEffect, useState } from "react";
 import { STSClient, GetCallerIdentityCommand } from "@aws-sdk/client-sts";
 import {getCredentialsFromIdentityPool} from "./util/GetCredentialsFromIdentityPool.ts";
+import Calendar from "./component/Calendar.tsx";
 
 function App() {
   const auth = useAuth();
@@ -64,6 +65,7 @@ function App() {
         ) : (
           <pre>取得中...</pre>
         )}
+        <Calendar/>
       </div>
     );
   }
