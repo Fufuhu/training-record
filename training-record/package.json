@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@aws-sdk/client-sts": "^3.864.0",
     "@aws-sdk/credential-providers": "^3.864.0",
     "oidc-client-ts": "^3.3.0",
     "react": "^19.1.1",
