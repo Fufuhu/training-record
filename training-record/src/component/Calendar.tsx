@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const today = new Date();
@@ -7,7 +7,13 @@ function getDaysInMonth(year: number, month: number) {
   return new Date(year, month + 1, 0).getDate();
 }
 
-function Calendar() {
+interface CalendarProps {
+  highlightYear?: string;
+  highlightMonth?: string;
+  highlightDay?: string;
+}
+
+function Calendar({ highlightYear, highlightMonth, highlightDay }: CalendarProps) {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState<number | null>(null);
   const year = currentDate.getFullYear();
@@ -15,6 +21,18 @@ function Calendar() {
   const daysInMonth = getDaysInMonth(year, month);
   const firstDay = new Date(year, month, 1).getDay();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (
+      highlightYear &&
+      highlightMonth &&
+      highlightDay &&
+      Number(highlightYear) === year &&
+      Number(highlightMonth) === month + 1
+    ) {
+      setSelectedDate(Number(highlightDay));
+    }
+  }, [highlightYear, highlightMonth, highlightDay, year, month]);
 
   const prevMonth = () => {
     setCurrentDate(new Date(year, month - 1, 1));
