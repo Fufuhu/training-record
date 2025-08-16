@@ -15,7 +15,6 @@ export const Records = () => {
         <div>月: {month}</div>
         <div>日: {day}</div>
       </div>
-      <Calendar highlightYear={year} highlightMonth={month} highlightDay={day} />
     </div>
   );
 }
