@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom";
-import Calendar from "../component/Calendar.tsx";
 
 export const Records = () => {
   const { year, month, day } = useParams();
