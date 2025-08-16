@@ -54,6 +54,12 @@ function Calendar({ highlightYear, highlightMonth, highlightDay }: CalendarProps
 
   return (
     <div style={{ width: 320, margin: "0 auto" }}>
+      <div style={{marginTop: 16, textAlign: "center"}}>
+        <strong>表示中の日付: </strong>
+        {selectedDate
+          ? `${year}年${month + 1}月${selectedDate}日`
+          : `${year}年${month + 1}月${today.getDate()}日`}
+      </div>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <button onClick={prevMonth}>前月</button>
         <span>{year}年 {month + 1}月</span>
@@ -103,12 +109,6 @@ function Calendar({ highlightYear, highlightMonth, highlightDay }: CalendarProps
           ))}
         </tbody>
       </table>
-      <div style={{marginTop: 16, textAlign: "center"}}>
-        <strong>表示中の日付: </strong>
-        {selectedDate
-          ? `${year}年${month + 1}月${selectedDate}日`
-          : `${year}年${month + 1}月${today.getDate()}日`}
-      </div>
     </div>
   );
 }
