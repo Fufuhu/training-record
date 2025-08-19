@@ -17,16 +17,24 @@ export const RecordsLayout = () => {
   return (
     <div>
       <Grid container spacing={2}>
-        <Grid size={2}>
+        <Grid size={isOpen ? 2 : 0}>
           <Button
             variant="outlined"
             color="primary"
             onClick={() => toggleMenu()}
           >{isOpen ? <ArrowLeftIcon/> : <ArrowRightIcon/>}</Button>
-          <Calendar />
+          <div style={{
+            display: isOpen ? 'block' : 'none',
+          }}>
+            <Calendar />
+          </div>
         </Grid>
-        <Grid  size={8}>
-          <Outlet />
+        <Grid  size={10}>
+          <div style={{
+            marginTop: '2em',
+          }}>
+            <Outlet />
+          </div>
         </Grid>
       </Grid>
     </div>
