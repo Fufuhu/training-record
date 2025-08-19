@@ -22,9 +22,6 @@ export const Calendar = () => {
     <div>
       <h1>Training Calendar</h1>
 
-      <p>This is the calendar page.</p>
-      <p>Here you can view and manage your training schedule.</p>
-      <hr />
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 8, marginBottom: 8 }}>
           <Button
