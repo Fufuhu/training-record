@@ -30,9 +30,15 @@ export const Records = () => {
           renderInput={(params) => <TextField {...params} label="種目" id="movement"/>}
           sx={{ width: 300, marginTop: 2 }}
         />
-        <TextField label="重量[kg]" id="weight" type="number" sx={{ width: 100, marginTop: 2 }} defaultValue={5} inputProps={{ min: 0 }} />
-        <TextField label="レップ数" id="reps" type="number" sx={{ width: 100, marginTop: 2 }} defaultValue={10} inputProps={{ min: 1 }} />
-        <TextField label="セット数" id="sets" type="number" sx={{ width: 100, marginTop: 2 }} defaultValue={3} inputProps={{ min: 1 }} />
+        <TextField label="重量[kg]" id="weight" type="number" sx={{ width: 100, marginTop: 2 }} defaultValue={5} slotProps={{
+          htmlInput: { min: 0 }
+        }} />
+        <TextField label="レップ数" id="reps" type="number" sx={{ width: 100, marginTop: 2 }} defaultValue={10} slotProps={{
+          htmlInput: { min: 1 }
+        }}/>
+        <TextField label="セット数" id="sets" type="number" sx={{ width: 100, marginTop: 2 }} defaultValue={3} slotProps={{
+          htmlInput: { min: 1 }
+        }}/>
       </Box>
 
 
