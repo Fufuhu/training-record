@@ -1,8 +1,16 @@
 import { useParams } from "react-router-dom";
-import {Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
+import {FormControl, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
+import Autocomplete from '@mui/material/Autocomplete';
+import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
 
 export const Records = () => {
   const { year, month, day } = useParams();
+
+  const movements = [
+    { label: 'ベンチプレス', value: 'bench_press' },
+  ]
+
   return (
     <div>
       <p>This is the records page.</p>
@@ -14,6 +22,18 @@ export const Records = () => {
         <div>月: {month}</div>
         <div>日: {day}</div>
       </div>
+
+      <Box component="form" sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+        <Autocomplete
+          disablePortal
+          options={movements}
+          renderInput={(params) => <TextField {...params} label="種目" id="movement"/>}
+          sx={{ width: 300, marginTop: 2 }}
+        />
+        <TextField label="重量[kg]" id="weight" type="number" sx={{ width: 100, marginTop: 2 }} defaultValue={5} inputProps={{ min: 0 }} />
+        <TextField label="レップ数" id="reps" type="number" sx={{ width: 100, marginTop: 2 }} defaultValue={10} inputProps={{ min: 1 }} />
+        <TextField label="セット数" id="sets" type="number" sx={{ width: 100, marginTop: 2 }} defaultValue={3} inputProps={{ min: 1 }} />
+      </Box>
 
 
       <Paper>
