@@ -4,7 +4,6 @@ export const Records = () => {
   const { year, month, day } = useParams();
   return (
     <div>
-      <h1>Training Records</h1>
       <p>This is the records page.</p>
       <p>Here you can view and manage your training records.</p>
       <hr />
